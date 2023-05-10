@@ -2,6 +2,7 @@
 
 from tkinter import *
 from tkinter import filedialog
+import speech_recognition as sr
 
 class GUI:
    
@@ -91,8 +92,17 @@ class GUI:
     # This function runs when Speech Button is Clicked
     
     def speakBtnfun(self):
+         r = sr.Recognizer()
+        with sr.Microphone() as source:
+            # reading the audio data from the default microphone
+            print("Speak")
+            audio= r.record(source, duration=7)
+            print("Recognizing speech...")
+            # converting speech to text
+            text = r.recognize_google(audio)
+            print(text)
     # Hear we call the function present in SpeachToCode file present in Login Dir...
-        print("Speak")
+        
 
     
     def textAreaEventLoop(self , event):   
