@@ -3,6 +3,7 @@
 from tkinter import *
 from tkinter import filedialog
 import speech_recognition as sr
+from tkinter.filedialog import asksaveasfile
 
 class GUI:
    
@@ -64,8 +65,18 @@ class GUI:
         print("open fun")
 
     def saveFun(self):
-        print("save fun")
+       print("save fun")
+        files = [('Python Files', '*.py'),
+                 ('All Files', '*.*'),
+                 ('Text Document', '*.txt'),
+                 ('java document','*.java'),
+                 ('c document','*.c')]
+        file = asksaveasfile(filetypes=files, defaultextension=files)
+      
+        
+         
         # self.pasteIntoDesiredFile(fileLoc)
+     
 
     def pasteIntoDesiredFile(loc):
         print(" past into desired file")
